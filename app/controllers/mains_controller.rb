@@ -16,5 +16,9 @@ class MainsController < ApplicationController
 
   end
 
+  def contacts
+
+  end
+
 
 end
