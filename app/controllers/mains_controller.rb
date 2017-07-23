@@ -4,4 +4,7 @@ class MainsController < ApplicationController
 
   end
 
+  def commands
+    
+  end
 end
