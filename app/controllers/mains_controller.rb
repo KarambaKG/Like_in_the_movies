@@ -20,5 +20,9 @@ class MainsController < ApplicationController
 
   end
 
+  def help_project
+    
+  end
+
 
 end
