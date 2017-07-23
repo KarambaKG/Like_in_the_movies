@@ -7,4 +7,8 @@ class MainsController < ApplicationController
   def commands
     
   end
+
+  def movies
+    
+  end
 end
