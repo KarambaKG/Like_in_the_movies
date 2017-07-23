@@ -11,4 +11,10 @@ class MainsController < ApplicationController
   def movies
     
   end
+
+  def participants
+
+  end
+
+
 end
