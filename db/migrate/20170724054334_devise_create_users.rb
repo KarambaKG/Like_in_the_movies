@@ -36,7 +36,6 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.1]
       t.string :email
       t.integer :phone
       t.string :social_network
-      t.string :image
 
       t.timestamps null: false
     end

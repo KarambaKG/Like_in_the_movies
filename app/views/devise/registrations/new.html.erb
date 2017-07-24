@@ -14,6 +14,11 @@
     </div>
 
     <div>
+      <%= f.label :avatar, 'Фото' %> <br>
+      <%= f.file_field :avatar %>
+    </div>
+
+    <div>
       <%= f.label :description, 'Описание о себе' %> <br>
       <%= f.text_area :description %>
     </div>
@@ -47,7 +52,7 @@
   </div> <br>
 
   <div class="actions">
-    <%= f.submit 'Отправить заявку' %>
+    <%= f.submit 'Отправить заявку на рассмотрение администратора' %>
   </div>
 <% end %>
 
