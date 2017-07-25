@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
-  root 'mains#index'
+
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
 
   devise_for :users, :controllers => { registrations: 'registrations' }
+
+  root 'mains#index'
 
   get '/commands', to: 'mains#commands', as: 'commands'
   get '/movies', to: 'mains#movies', as: 'movies'
