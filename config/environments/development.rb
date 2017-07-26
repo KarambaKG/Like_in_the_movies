@@ -18,7 +18,7 @@ Rails.application.configure do
 
     config.cache_store = :memory_store
     config.public_file_server.headers = {
-      'Cache-Control' => "public, max-age=#{2.days.seconds.to_i}"
+        'Cache-Control' => 'public, max-age=172800'
     }
   else
     config.action_controller.perform_caching = false
@@ -27,9 +27,26 @@ Rails.application.configure do
   end
 
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
 
   config.action_mailer.perform_caching = false
+
+  config.assets.raise_runtime_errors = true
+
+  config.action_mailer.default_url_options = {:host => 'localhost:3000'}
+
+  config.force_ssl = false
+
+  config.action_mailer.smtp_settings = {
+      :address => 'smtp.gmail.com',
+      :port => 587,
+      :domain => 'gmail.com',
+      :authentication => :login,
+      :user_name => 'karambavkino@gmail.com',      #ENV['admin_email'],
+      :password => 'likeinthemovies',                #ENV['admin_password'],
+      :enable_starttls_auto => true,
+      :openssl_verify_mode => 'none'
+  }
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
