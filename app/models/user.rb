@@ -10,5 +10,16 @@ class User < ApplicationRecord
                     default_url: "/images/:style/missing.png"
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
 
+  def active_for_authentication?
+    super && status == "active"
+  end
+
+  def inactive_message
+    if status == "notactive"
+      :not_approved
+    else
+      super # Use whatever other message
+    end
+  end
 
 end
