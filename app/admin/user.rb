@@ -1,6 +1,6 @@
 ActiveAdmin.register User do
 
-  permit_params :name, :surname, :description, :phone, :social_network, :email, :password,
+  permit_params :name, :surname, :description, :phone, :social_network, :email, :status, :password,
                 :password_confirmation, role: [:id, :name, ]
 
   index do
@@ -12,6 +12,7 @@ ActiveAdmin.register User do
     column :phone
     column :social_network
     column :email
+    column :status
     column :role
     column :current_sign_in_at
     column :sign_in_count
@@ -27,6 +28,7 @@ ActiveAdmin.register User do
       f.input :phone
       f.input :social_network
       f.input :email
+      f.input :status, as: :radio, :label => 'status', :collection => [ 'active', 'not_active' ]
       f.input :role_id, :label => 'Профессия', :as => :select,
               :collection => Role.all.map{|role| ["#{role.name}", role.id]}
       f.input :password
