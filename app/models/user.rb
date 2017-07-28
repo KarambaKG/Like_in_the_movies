@@ -11,14 +11,24 @@ class User < ApplicationRecord
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
 
   def active_for_authentication?
-    super && status == "active"
+    super && status == 'active'
   end
 
   def inactive_message
-    if status == "notactive"
+    if status == 'not_active'
       :not_approved
     else
       super # Use whatever other message
+    end
+  end
+
+  after_update :send_email_if_status_active
+
+  private
+
+  def send_email_if_status_active
+    if status == 'active'
+      ToAdminMailer.confirm_alert(self).deliver_now
     end
   end
 
