@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170726125524) do
+ActiveRecord::Schema.define(version: 20170801065143) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -41,6 +41,17 @@ ActiveRecord::Schema.define(version: 20170726125524) do
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_admin_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
+  end
+
+  create_table "commands", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "avatar_file_name"
+    t.string "avatar_content_type"
+    t.integer "avatar_file_size"
+    t.datetime "avatar_updated_at"
   end
 
   create_table "roles", force: :cascade do |t|
@@ -77,6 +88,8 @@ ActiveRecord::Schema.define(version: 20170726125524) do
     t.datetime "confirmation_sent_at"
     t.string "unconfirmed_email"
     t.string "status", default: "not_active"
+    t.integer "command_id"
+    t.index ["command_id"], name: "index_users_on_command_id"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
