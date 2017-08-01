@@ -27,7 +27,7 @@ class User < ApplicationRecord
   private
 
   def send_email_if_status_active
-    if status == 'active'
+    if self.status_was == 'not_active' && status == 'active'
       ToAdminMailer.confirm_alert(self).deliver_now
     end
   end
