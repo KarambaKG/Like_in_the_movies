@@ -4,6 +4,7 @@ class MainsController < ApplicationController
   end
 
   def commands
+    @commands = Command.all
   end
 
   def movies

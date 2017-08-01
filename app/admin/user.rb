@@ -1,7 +1,7 @@
 ActiveAdmin.register User do
 
   permit_params :name, :surname, :description, :phone, :social_network, :email, :status, :password,
-                :password_confirmation, role: [:id, :name, ]
+                :password_confirmation, :role_id, :command_id
 
   controller do
     def update_resource(object, attributes)
@@ -21,9 +21,7 @@ ActiveAdmin.register User do
     column :email
     column :status
     column :role
-    column :current_sign_in_at
-    column :sign_in_count
-    column :created_at
+    column :command
     actions
   end
 
@@ -38,6 +36,8 @@ ActiveAdmin.register User do
       f.input :status, as: :radio, :label => 'status', :collection => [ 'active', 'not_active' ]
       f.input :role_id, :label => 'Профессия', :as => :select,
               :collection => Role.all.map{|role| ["#{role.name}", role.id]}
+      f.input :command_id, :label => 'Команда', :as => :select,
+              :collection => Command.all.map{|command| ["#{command.name}", command.id]}
       f.input :password
       f.input :password_confirmation
     end
