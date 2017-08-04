@@ -7,6 +7,11 @@ class MainsController < ApplicationController
     @commands = Command.all
   end
 
+  def about_command
+    @about_command = Command.find(params[:id])
+    @all_command_participants = User.where(command: Command.find_by_name(@about_command.name))
+  end
+
   def movies
   end
 
@@ -20,4 +25,3 @@ class MainsController < ApplicationController
   end
 
 end
-

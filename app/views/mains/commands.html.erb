@@ -1,13 +1,11 @@
 <div>Команды участников</div>
 
-<div>Здесь потом выведем названия и картинку всех команд</div>
-
 <table>
   <% @commands.each do |command| %>
       <tr>
         <td>
-          <%= link_to root_path do %>
-          <%= image_tag command.avatar.url(:thumb) %>
+          <%= link_to about_command_path(command) do %>
+          <%= image_tag command.avatar.url   %> <br>
           <% end %>
         </td>
       </tr>

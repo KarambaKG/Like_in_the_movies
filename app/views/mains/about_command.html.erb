@@ -1,0 +1,20 @@
+<table>
+  <tr>
+    <tr>Название команды: <%= @about_command.name%></tr>
+      <td>О команде: <%= @about_command.description%></td>
+      <td>Логогип команды: <%= image_tag @about_command.avatar.url(:thumb) %></td>
+   </tr>
+</table>
+
+<div>Участники команды</div>
+
+<% @all_command_participants.each do |participant| %>
+<table>
+  <tr>
+    <td><%= participant.role.name %>: <%= participant.name %> </td>
+  </tr>
+<% end %>
+</table>
+
+<br>
+<div>Достижения команды</div>
