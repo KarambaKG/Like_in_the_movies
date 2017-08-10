@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170810070355) do
+ActiveRecord::Schema.define(version: 20170810124301) do
 
   create_table "achievements", force: :cascade do |t|
     t.string "name"
@@ -21,6 +21,13 @@ ActiveRecord::Schema.define(version: 20170810070355) do
     t.string "avatar_content_type"
     t.integer "avatar_file_size"
     t.datetime "avatar_updated_at"
+  end
+
+  create_table "achievements_users", id: false, force: :cascade do |t|
+    t.integer "achievement_id", null: false
+    t.integer "user_id", null: false
+    t.index ["achievement_id", "user_id"], name: "index_achievements_users_on_achievement_id_and_user_id"
+    t.index ["user_id", "achievement_id"], name: "index_achievements_users_on_user_id_and_achievement_id"
   end
 
   create_table "active_admin_comments", force: :cascade do |t|
@@ -94,14 +101,9 @@ ActiveRecord::Schema.define(version: 20170810070355) do
     t.integer "avatar_file_size"
     t.datetime "avatar_updated_at"
     t.integer "role_id"
-    t.string "confirmation_token"
-    t.datetime "confirmed_at"
-    t.datetime "confirmation_sent_at"
-    t.string "unconfirmed_email"
     t.string "status", default: "not_active"
     t.integer "command_id"
     t.index ["command_id"], name: "index_users_on_command_id"
-    t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["role_id"], name: "index_users_on_role_id"

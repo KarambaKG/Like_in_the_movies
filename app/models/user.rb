@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   belongs_to :role
   belongs_to :command, optional: true
+  has_and_belongs_to_many :achievements
 
   # Include default devise modules. Others available are:
   # :lockable, :timeoutable and :omniauthable
