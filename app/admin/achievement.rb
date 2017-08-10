@@ -1,4 +1,4 @@
-ActiveAdmin.register Command do
+ActiveAdmin.register Achievement do
 
   permit_params :name, :description, :avatar
 
@@ -7,19 +7,19 @@ ActiveAdmin.register Command do
     id_column
     column :name
     column :description
-    column 'Avatar' do |command|
-      image_tag command.avatar.url(:thumb)
+    column 'Avatar' do |achievement|
+      image_tag achievement.avatar.url(:thumb)
     end
     column :created_at
     actions
   end
 
-  show do |command|
+  show do |achievement|
     attributes_table do
       row :name
       row :description
       row :thumbnail do
-        image_tag(command.avatar.url(:thumb))
+        image_tag(achievement.avatar.url(:thumb))
       end
       # Will display the image on show object page
     end
@@ -29,7 +29,7 @@ ActiveAdmin.register Command do
     f.inputs do
       f.input :name
       f.input :description
-      f.input :avatar
+      f.input :avatar, hint: image_tag(achievement.avatar.url(:thumb))
     end
     f.actions
   end
