@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170810124301) do
+ActiveRecord::Schema.define(version: 20170811060011) do
 
   create_table "achievements", force: :cascade do |t|
     t.string "name"
@@ -21,6 +21,13 @@ ActiveRecord::Schema.define(version: 20170810124301) do
     t.string "avatar_content_type"
     t.integer "avatar_file_size"
     t.datetime "avatar_updated_at"
+  end
+
+  create_table "achievements_commands", id: false, force: :cascade do |t|
+    t.integer "achievement_id", null: false
+    t.integer "command_id", null: false
+    t.index ["achievement_id", "command_id"], name: "index_achievements_commands_on_achievement_id_and_command_id"
+    t.index ["command_id", "achievement_id"], name: "index_achievements_commands_on_command_id_and_achievement_id"
   end
 
   create_table "achievements_users", id: false, force: :cascade do |t|

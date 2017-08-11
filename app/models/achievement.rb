@@ -1,5 +1,6 @@
 class Achievement < ApplicationRecord
   has_and_belongs_to_many :users
+  has_and_belongs_to_many :commands
 
   has_attached_file :avatar, styles: { medium: "300x300>", thumb: "100x100>" },
                     default_url: "missing/missing.jpg"
