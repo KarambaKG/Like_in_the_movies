@@ -3,6 +3,7 @@
 <table>
   <% @commands.each do |command| %>
       <tr>
+        <td><%= command.name %></td>
         <td>
           <%= link_to about_command_path(command) do %>
           <%= image_tag command.avatar.url   %> <br>

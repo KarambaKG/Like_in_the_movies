@@ -18,3 +18,12 @@
 
 <br>
 <div>Достижения команды</div>
+<% @about_command.achievements.each do |achievement| %>
+<table>
+  <tr>
+    <td><%= achievement.name%></td><br>
+    <td><%= achievement.description %></td>
+    <td><%= image_tag achievement.avatar.url(:thumb) %></td>
+  </tr>
+<% end %>
+</table>
