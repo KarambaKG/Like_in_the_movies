@@ -1,4 +1,5 @@
 ActiveAdmin.register User do
+  config.filters = false
 
   permit_params :name, :surname, :description, :phone, :social_network, :email, :status, :password,
                 :password_confirmation, :role_id, :command_id

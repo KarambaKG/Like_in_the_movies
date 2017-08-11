@@ -1,4 +1,5 @@
 ActiveAdmin.register Command do
+  config.filters = false
 
   permit_params :name, :description, :avatar
 
