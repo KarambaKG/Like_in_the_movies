@@ -6,7 +6,13 @@
 <td><%= @user.phone %></td> <br>
 <td><%= @user.social_network %></td> <br>
 <td><%= @user.role.name %></td> <br>
-<td><%= @user.command.name %></td> <br>
+<td>
+  <% if @user.command != nil %>
+    <%= @user.command.name  %>
+  <% else %>
+    <%= 'Без команды' %>
+  <% end %>
+</td> <br>
 <td><%= image_tag @user.avatar.url %></td> <br>
 
 <div>Достижения пользователя</div>
