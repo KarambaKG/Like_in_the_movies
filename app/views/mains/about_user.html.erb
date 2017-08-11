@@ -1,0 +1,21 @@
+<div>Информация о пользователе</div>
+
+<td><%= @user.name %></td> <br>
+<td><%= @user.surname %></td> <br>
+<td><%= @user.description %></td> <br>
+<td><%= @user.phone %></td> <br>
+<td><%= @user.social_network %></td> <br>
+<td><%= @user.role.name %></td> <br>
+<td><%= @user.command.name %></td> <br>
+<td><%= image_tag @user.avatar.url %></td> <br>
+
+<div>Достижения пользователя</div>
+<% @user.achievements.each do |achievement| %>
+<table>
+  <tr>
+    <td><%= achievement.name%></td><br>
+    <td><%= achievement.description %></td>
+    <td><%= image_tag achievement.avatar.url(:thumb) %></td>
+  </tr>
+    <% end %>
+</table>

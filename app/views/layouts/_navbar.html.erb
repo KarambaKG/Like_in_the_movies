@@ -19,7 +19,7 @@
         <%= link_to 'Ссылки на ютуб канал, соц. сети и т д', root_path, class: 'btn btn-default navbar-btn' %>
         <% if user_signed_in? %>
             <p class="navbar-text">
-              Привет, <%= current_user.name %>!
+              Привет, <%= link_to current_user.name, about_user_path(current_user.id) %>!
             </p>
             <ul class="nav navbar-nav">
               <li class="dropdown">
