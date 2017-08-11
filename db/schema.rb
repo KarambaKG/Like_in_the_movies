@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170811091121) do
+ActiveRecord::Schema.define(version: 20170811060011) do
 
   create_table "achievements", force: :cascade do |t|
     t.string "name"
@@ -96,10 +96,14 @@ ActiveRecord::Schema.define(version: 20170811091121) do
     t.datetime "last_sign_in_at"
     t.string "current_sign_in_ip"
     t.string "last_sign_in_ip"
+    t.string "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string "unconfirmed_email"
     t.string "name"
     t.string "surname"
     t.text "description"
-    t.integer "phone"
+    t.integer "phone", limit: 28
     t.string "social_network"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -111,9 +115,11 @@ ActiveRecord::Schema.define(version: 20170811091121) do
     t.string "status", default: "not_active"
     t.integer "command_id"
     t.index ["command_id"], name: "index_users_on_command_id"
+    t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["role_id"], name: "index_users_on_role_id"
+    t.index [nil], name: "index_users_on_unlock_token", unique: true
   end
 
 end
