@@ -28,4 +28,8 @@ class MainsController < ApplicationController
   def help_project
   end
 
+  def results
+
+  end
+
 end

@@ -14,5 +14,5 @@ Rails.application.routes.draw do
   get '/participants', to: 'mains#participants', as: 'participants'
   get '/contacts', to: 'mains#contacts', as: 'contacts'
   get '/help_project', to: 'mains#help_project', as: 'help_project'
-
+  get '/results', to: 'mains#results', as: 'results'
 end

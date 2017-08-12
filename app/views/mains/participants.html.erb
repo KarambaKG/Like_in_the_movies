@@ -1,6 +1,10 @@
-<div>
-  Список всех участников проекта:
-</div>
-<div>Здесь выведем абсолютно всех участников проекта</div>
-<div><%= link_to 'В команде', root_path, class: 'btn btn-navbar btn-default' %></div>
-<div><%= link_to 'Без команды', root_path, class: 'btn btn-navbar btn-default' %></div>
+
+<div>Поиск участников проекта</div>
+<%= radio_button_tag(:age, 'true') %>
+<%= label_tag(:age_child, 'В команде') %>
+<%= radio_button_tag(:age, 'false') %>
+<%= label_tag(:age_adult, 'Без команды') %>
+
+<%= collection_select(:role, :role_id, Role.all, :id, :name) %>
+
+<%= link_to 'Поиск', results_path, class: 'btn btn-default navbar-btn' %>
