@@ -6,7 +6,7 @@
     <div class="collapse navbar-collapse" id="navbar-collapse">
       <ul class="nav navbar-nav">
         <%= link_to root_path do %>
-            <%= image_tag 'smiles.jpg' %>
+            <%= image_tag 'smiles.jpg', height: '200', width: '660' %>
         <% end %>
       </ul>
       <ul class="navbar-nav navbar-left">
@@ -16,6 +16,7 @@
         <%= link_to 'Контакты', contacts_path, class: 'btn btn-default navbar-btn' %>
         <%= link_to 'Помочь проекту', help_project_path, class: 'btn btn-default navbar-btn' %>
         <%= link_to 'Ссылки на ютуб канал, соц. сети и т д', root_path, class: 'btn btn-default navbar-btn' %>
+        <%= link_to image_tag("youtube.png", :size => '30x30'), 'http://www.youtube.com', class: 'btn btn-default navbar-btn' %>
         <% if user_signed_in? %>
             <p class="navbar-text">
               Привет, <%= link_to current_user.name, about_user_path(current_user.id) %>!
