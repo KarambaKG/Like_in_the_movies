@@ -119,7 +119,7 @@ ActiveRecord::Schema.define(version: 20170811060011) do
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["role_id"], name: "index_users_on_role_id"
-    t.index [nil], name: "index_users_on_unlock_token", unique: true
+    t.index [nil], name: "index_users_on_unlock_token"
   end
 
 end
