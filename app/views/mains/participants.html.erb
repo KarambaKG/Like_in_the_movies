@@ -1,10 +1,4 @@
-
 <div>Поиск участников проекта</div>
-<%= radio_button_tag(:age, 'true') %>
-<%= label_tag(:age_child, 'В команде') %>
-<%= radio_button_tag(:age, 'false') %>
-<%= label_tag(:age_adult, 'Без команды') %>
 
-<%= collection_select(:role, :role_id, Role.all, :id, :name) %>
-
-<%= link_to 'Поиск', results_path, class: 'btn btn-default navbar-btn' %>
+<%= link_to 'В команде', in_commands_path, class: 'btn btn-default navbar-btn' %>
+<%= link_to 'Без команды', no_commands_path, class: 'btn btn-default navbar-btn' %>

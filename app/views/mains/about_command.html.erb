@@ -11,7 +11,7 @@
 <% @all_command_participants.each do |participant| %>
 <table>
   <tr>
-    <td><%= participant.role.name %>: <%= participant.name %> </td>
+    <td><%= participant.role.name %>: <%= link_to participant.name , about_user_path(participant) %> </td>
   </tr>
 <% end %>
 </table>

@@ -1,0 +1,4 @@
+<div>Редакторы без команды</div>
+<% @no_commands_editors.each do |user| %>
+    <%= link_to user.name, about_user_path(user) %>
+<%end%>

@@ -1,0 +1,4 @@
+<div>PR-менеджеры в команде</div>
+<% @in_commands_pr_managers.each do |user| %>
+    <%= link_to user.name, about_user_path(user) %>
+<%end%>
