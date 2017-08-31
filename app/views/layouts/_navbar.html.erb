@@ -6,7 +6,7 @@
     <div class="collapse navbar-collapse" id="navbar-collapse">
       <ul class="nav navbar-nav">
         <%= link_to root_path do %>
-            <%= image_tag 'smiles.jpg', height: '200', width: '660' %>
+            <%= image_tag 'логотип на главной.jpg', height: '250', width: '900' %>
         <% end %>
       </ul>
       <ul class="navbar-nav navbar-left">
@@ -15,8 +15,11 @@
         <%= link_to 'Участники', participants_path, class: 'btn btn-default navbar-btn' %>
         <%= link_to 'Контакты', contacts_path, class: 'btn btn-default navbar-btn' %>
         <%= link_to 'Помочь проекту', help_project_path, class: 'btn btn-default navbar-btn' %>
-        <%= link_to 'Ссылки на ютуб канал, соц. сети и т д', root_path, class: 'btn btn-default navbar-btn' %>
         <%= link_to image_tag("youtube.png", :size => '30x30'), 'http://www.youtube.com', class: 'btn btn-default navbar-btn' %>
+        <%= link_to image_tag("инстаграм.jpg", :size => '30x30'), 'https://www.instagram.com/kakvkino.club/', class: 'btn btn-default navbar-btn' %>
+        <%= link_to image_tag("вк.jpg", :size => '30x30'), 'https://vk.com/public103899884', class: 'btn btn-default navbar-btn' %>
+        <%= link_to image_tag("ок.png", :size => '30x30'), 'https://www.ok.ru/molodezhnytsentr.kbkvntamashow', class: 'btn btn-default navbar-btn' %>
+        <%= link_to image_tag("фейсбук.png", :size => '30x30'), 'https://www.facebook.com/%D0%9A%D0%B0%D0%BA-%D0%B2-%D0%9A%D0%98%D0%9D%D0%9E-808950895951755/', class: 'btn btn-default navbar-btn' %>
         <% if user_signed_in? %>
             <p class="navbar-text">
               Привет, <%= link_to current_user.name, about_user_path(current_user.id) %>!

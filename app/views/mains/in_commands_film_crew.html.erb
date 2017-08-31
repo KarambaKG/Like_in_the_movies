@@ -1,0 +1,4 @@
+<div>Съёмочный состав в команде</div>
+<% @in_commands_film_crew.each do |user| %>
+    <%= link_to user.name, about_user_path(user) %>
+<%end%>
